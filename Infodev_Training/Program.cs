@@ -55,14 +55,52 @@ namespace ConsoleApp
             return 25;
         }
     }
+    public struct StructClass
+    {
+        public int x;
+        public int y;
+        public string z;
+    }
     class Program
     {
         static void Main(string[] args)
         {
             //ClassEg();
-            //Datatype();
+            // Datatype();
             // EnumEg();
-            Interpolation();
+            //Interpolation();
+            // InheritingAndOverriding();
+            //StructureEg();
+
+            
+        }
+        public static void StructureEg()
+        {
+            StructClass t;
+            //Console.WriteLine(t.x);    Error: value not initialized so cant be accessed
+            t.x = 5;
+            t.y = 6;
+
+            Console.WriteLine(t.x);//value initialized so can be accessed
+        }
+        public static void InheritingAndOverriding()
+        {
+            Rectangle r = new Rectangle();
+            r.Length = 15.5M;
+            r.Breadth = 12.5M;
+
+            Shape s = new Rectangle();
+            s.Length = 20.0M;
+            // s.Breadth = 10.5M;     Error: no access to breath which is child variable
+
+            Rectangle re = new Rectangle(2, 5);
+            Console.WriteLine($"The Perimeter of rectangle is:{re.Perimeter()}");
+
+            Shape overridingeg = new Rectangle(2, 5);
+            Console.WriteLine("Overriding Test");
+            Console.WriteLine($"The Perimeter of rectangle is:{overridingeg.Perimeter()}");
+            Console.ReadLine();
+
         }
         public static void Interpolation()
         {
@@ -93,21 +131,27 @@ namespace ConsoleApp
         }
         public static void Datatype()
         {
-            float a = 1.00f;
-            double a2 = 1.00;
-            decimal a3 = 1.00m;
+            //float a = 1.00f;
+            //double a2 = 1.00;
+            //decimal a3 = 1.00m;
 
-            int[] arr = new int[1000];
-            char y = '1';
+            //int[] arr = new int[1000];
+            //char y = '1';
 
-            string test = "test";//Memory location 5000
-            test = "change";//memory location 5002 [Thus string is called immutable datatype]
+            //string test = "test";//Memory location 5000
+            //test = "change";//memory location 5002 [Thus string is called immutable datatype]
 
-            StringBuilder sb = new StringBuilder("new string");//Memory location 6000[mutable datatype]
-            sb.Append("New string builder string");//Memory location 6000
-            sb.Clear();
+            StringBuilder sb = new StringBuilder("Hello");//Memory location 6000[mutable datatype]
+            sb.Append(" Superman");//Memory location 6000
+            //  sb.Clear();
+            sb.AppendLine();
             sb.Append("new line of string");
-
+            sb.AppendLine();
+            sb.AppendFormat("{0:C}", 500);
+            sb.AppendLine();
+            int a = 3, a2 = 3, a3 = 9;
+            sb.AppendFormat("{0} {1} {2}", a, a2, a3);
+            Console.WriteLine(sb);
         }
         public static void EnumEg()
         {
