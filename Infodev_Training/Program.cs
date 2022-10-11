@@ -132,7 +132,7 @@ namespace ConsoleApp
         public static void Datatype()
         {
             //float a = 1.00f;
-            //double a2 = 1.00;
+            //double a2 = 1.00d;
             //decimal a3 = 1.00m;
 
             //int[] arr = new int[1000];
