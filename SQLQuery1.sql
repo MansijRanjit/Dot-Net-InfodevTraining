@@ -224,9 +224,45 @@ begin transaction tr1
   delete from prim_teachers where name='kunti'
   update college set college_name='Advanced' where id =3
   select 999999999999
-  commit transaction tr1
+  commit transaction tr1 --completion of transaction and change is permanent
 end try
 begin catch
    if @@TRANCOUNT>0  --begin transaction statement increments @@trancount by 1 and rollback transaction statement sets @@trancount to 0
-   rollback transaction tr1
+	 rollback transaction tr1 --goes back to original value
 end catch
+
+
+--error generating in Transaction
+
+begin try
+begin transaction tr2
+	if not exists(select college_name from college)or not exists(select* from cou) 
+	begin
+		;throw 50001,'tet',1;
+	end
+	select college_name from college
+	select* from cou
+	commit transaction tr2
+end try
+begin catch
+   if @@TRANCOUNT>0
+	begin
+		rollback transaction tr2
+	end
+   declare @message varchar(1000)=error_message();
+   throw 50001,@message,1
+end catch
+
+--Procedure
+create or alter procedure et_school (@cl varchar(50),@address varchar(50))
+as 
+	update college set address='Sanepa' where id =1
+	select* from college where college_name like @cl and ADDRESS like @address
+	select top 2 * from college
+
+exec et_school @cl='everest',@address='Sanepa'
+
+drop procedure et_school
+
+
+select*from product
