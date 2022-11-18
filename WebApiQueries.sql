@@ -7,7 +7,7 @@ create table student
     Last_Name varchar(50),
 
 )
-
+-----------------------------------------------------
 create or alter proc usp_student_save
 (@FName varchar(50),@LName varchar(50))
 as 
@@ -16,10 +16,10 @@ begin
 end
 go
 
-exec usp_student_save @FName='Mansij',@LName='Ranjit'
+exec usp_student_save @FName='Shyam',@LName='Karki'
 
 --select* from student
-
+---------------------------------------------------
 create or alter proc usp_student_display
 (@Id int)
 as 
@@ -29,4 +29,23 @@ end
 go
 
 exec usp_student_display @Id=2;
+---------------------------------------------------
+create or alter proc usp_student_delete
+(@Id int)
+as 
+begin
+	delete from student where id=@Id;
+end
+go
+
+exec usp_student_delete @Id=5;
+-------------------------------------------
+create or alter proc usp_student_displayAll
+as 
+begin
+	select * from student;
+end
+go
+
+exec usp_student_displayAll;
 
