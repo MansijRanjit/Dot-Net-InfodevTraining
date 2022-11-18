@@ -3,6 +3,21 @@
   <head>
     <title>Registration form</title>
     <link href="img/reg icon.png" rel="icon" />
+    <script>
+      function abc() {
+        // document.getElementById("head").innerHTML = "asa";
+        var fname = document.getElementById("fname").value;
+        var mname = document.getElementById("mname").value;
+        var lname = document.getElementById("lname").value;
+        document.getElementById("op").innerHTML =
+          "Full Name: " + fname + " " + mname + " " + lname;
+      }
+      $.ajax({
+        type: "Post",
+        url: "/Default.aspx",
+        data: {},
+      });
+    </script>
   </head>
   <body>
     <img
@@ -11,7 +26,7 @@
       width="100"
       height="100"
     />
-    <!-- <h1>Personal Information Fillup</h1> -->
+    <!-- <h1 id="head">Personal Information Fillup</h1> -->
     <form target="_blank">
       <fieldset>
         <legend>Personal info</legend>
@@ -40,9 +55,10 @@
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="Number" maxlength="10" />
         <br /><br />
-        <input type="submit" value="Submit" />
-        <input type="reset" value="Clear" />
+        <input type="button" id="btnSubmit" value="Submit" onclick="abc()" />
+        <input type="reset" id="btnReset" value="Clear" />
       </fieldset>
     </form>
+    <p class="output" id="op"></p>
   </body>
 </html>
