@@ -7,7 +7,7 @@ using WebApiEg.Repository;
 
 namespace WebApiEg.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     [AllowAnonymous]//open application without authorization
 
@@ -25,8 +25,8 @@ namespace WebApiEg.Controllers
             return Ok("Success");
         }
 
-       // [HttpGet]   
-        public IActionResult Display(int id)
+       [HttpGet]   
+        public IActionResult Display([FromQuery]int id)
         {
             StudentData std=new StudentData();
             std = _studentRepo.GetById(id);
@@ -44,7 +44,7 @@ namespace WebApiEg.Controllers
         [HttpGet]
         public IActionResult DisplayAll()
         {
-            IList<StudentData> std = _studentRepo.GetAll();
+            List<StudentData> std = _studentRepo.GetAll();
             return Ok(std);
         }
 

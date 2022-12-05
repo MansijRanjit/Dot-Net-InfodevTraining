@@ -14,7 +14,7 @@ namespace ClassLibrary1
         {
 
         }
-        public DbSet<Student>tbStudent{get;set;}
+       // public DbSet<Student>tbStudent{get;set;}
         public DbSet<Teacher>tbTeacher{ get;set;} 
     }
 }

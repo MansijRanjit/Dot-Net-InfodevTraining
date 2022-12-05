@@ -78,9 +78,9 @@ namespace WebApiEg.Repository
             }
         }
         //get all data  from database
-        public IList<StudentData> GetAll()
+        public List<StudentData> GetAll()
         {
-            IList<StudentData> studentlist=new List<StudentData>();
+            List<StudentData> studentlist=new List<StudentData>();
             StudentData student = null;
             using (SqlCommand cmd = new SqlCommand())
             {

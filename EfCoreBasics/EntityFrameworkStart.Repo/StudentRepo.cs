@@ -18,22 +18,25 @@ namespace EntityFrameworkStart.Repo
             _context = context; 
           //  _context = new ApplicationContext();
         }
-        //Returns whole table data as list
-        public List<Student> GetStudent()
-        {
-         return _context.tbStudent.ToList();            
-        }
-        //Returns single row data as osm
-        public Student GetById(int id)
-        {
-            return _context.tbStudent.Find(id);//search using primary key only
-        }
-        //Add Student data to database
-        public void Add(Student model)
-        {
-            _context.tbStudent.Add(model);
-            _context.SaveChanges();
-        }
+        ////Returns whole table data as list
+        //public List<Student> GetStudent()
+        //{
+        //    return _context.tbStudent.ToList();
+        //}
+
+        ////Returns single row data as osm
+        //public Student GetById(int id)
+        //{
+        //    return _context.tbStudent.Find(id);//search using primary key only
+        //}
+
+        ////Add Student data to database
+        //public void Add(Student model)
+        //{
+        //    _context.tbStudent.Add(model);
+        //    _context.SaveChanges();
+        //}
+
         //Update Student data to databse    
        /* public void Update()
         {

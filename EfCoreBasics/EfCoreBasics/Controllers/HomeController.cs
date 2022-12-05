@@ -26,16 +26,16 @@ namespace EfCoreBasics.Controllers
 
         public IActionResult Index()
         {
-            StudentRepo st = new StudentRepo(_context);
-            try
-            {
-            var item = st.GetStudent();
+            //StudentRepo st = new StudentRepo(_context);
+            //try
+            //{
+            //var item = st.GetStudent();
 
-            }
-            catch(Exception ex)
-            {
-                string error = ex.Message;
-            }
+            //}
+            //catch(Exception ex)
+            //{
+            //    string error = ex.Message;
+            //}
             return View();
         }
         public IActionResult Add()
@@ -44,8 +44,8 @@ namespace EfCoreBasics.Controllers
         }
         public IActionResult Add(Student model)
         {
-            StudentRepo sr = new StudentRepo();
-            sr.Add(model);
+            //StudentRepo sr = new StudentRepo();
+            //sr.Add(model);
             return View();
         }
 
